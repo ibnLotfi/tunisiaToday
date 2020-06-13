@@ -12,5 +12,6 @@ namespace tunisiaToday.DataAccess.Data
 
         public DbSet<Article> Articles { get; set; }
 
+        public DbSet<Category> Categories { get; set; }
     }
 }

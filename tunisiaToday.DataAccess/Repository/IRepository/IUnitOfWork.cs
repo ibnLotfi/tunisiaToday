@@ -1,7 +1,13 @@
-﻿namespace tunisiaToday.DataAccess.Repository.IRepository
+﻿using System;
+
+namespace tunisiaToday.DataAccess.Repository.IRepository
 {
-    public interface IUnitOfWork
+    public interface IUnitOfWork : IDisposable
     {
+        ICategoryRepository Category { get; }
+        IArticleRepository Article { get; }
+
+
         void Save();
     }
 }

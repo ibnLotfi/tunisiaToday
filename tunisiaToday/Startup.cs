@@ -5,6 +5,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using tunisiaToday.DataAccess.Data;
+using tunisiaToday.DataAccess.Repository;
+using tunisiaToday.DataAccess.Repository.IRepository;
 
 namespace tunisiaToday
 {
@@ -22,6 +24,7 @@ namespace tunisiaToday
         {
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllersWithViews();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddRazorPages().AddRazorRuntimeCompilation();
         }
 
