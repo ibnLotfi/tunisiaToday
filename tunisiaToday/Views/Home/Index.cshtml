@@ -1,15 +1,17 @@
-﻿@{
+﻿@model tunisiaToday.Models.ViewModels.HomeVM
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="pub-top-home text-center" >
-    <img src="~/img/5390015145514590975.gif" style="margin-top:60px"/>
+<div class="pub-top-home text-center">
+    <img src="~/img/5390015145514590975.gif" style="margin-top:60px" />
 </div>
 
 <div class="newest">
     <div class="container">
         <div class="row">
-            <div class="col-12 text-center" >
+            <div class="col-12 text-center">
                 <h1>A la une</h1>
                 <div style="border: solid black 0.1px">
                     <h3>Titre de l'article</h3>
@@ -21,108 +23,82 @@
     </div>
 </div>
 
+<hr />
+
+
 
 <div class="internationnal">
     <h1>Internationnal</h1>
     <div class="container">
         <div class="row">
+            @foreach (var item in Model.Article_Eco.ToList().GetRange(0, 3))
+            {
+                <div class="col-3 m-1" style="border: solid black 0.1px;background-color: rgb(255, 205, 0)">
+                    <h6>@item.Title</h6>
+                    <img src="~/img/visuel-non-disponible.jpg" style="width:100px;height:100px;" />
+                    <p>@item.Text.Substring(0, 150)...</p>
+                </div>
+            }
 
-            <div class="col-3 m-1" style="border: solid black 0.1px;background-color: rgb(255, 205, 0)">
-                <h6>titre de l'article</h6>
-                <img src="~/img/visuel-non-disponible.jpg" style="width:100px;height:100px;" />
-                <p>Lenteurs ouverts confiture entonnoirs morves sous acteurs amour marais bleu</p>
-            </div>
-
-            <div class="col-3 m-1" style="border: solid black 0.1px;background-color: rgb(255, 205, 0)">
-                <h6>titre de l'article</h6>
-                <img src="~/img/visuel-non-disponible.jpg" style="width:100px;height:100px;" />
-                <p>Lenteurs ouverts confiture entonnoirs morves sous acteurs amour marais bleu</p>
-            </div>
-
-            <div class="col-3 m-1" style="border: solid black 0.1px;background-color: rgb(255, 205, 0)">
-                <h6>titre de l'article</h6>
-                <img src="~/img/visuel-non-disponible.jpg" style="width:100px;height:100px;" />
-                <p>Lenteurs ouverts confiture entonnoirs morves sous acteurs amour marais bleu</p>
-            </div>
         </div>
     </div>
 </div>
+
+<hr />
 
 <div class="politique">
     <h1>Politique</h1>
     <div class="container">
         <div class="row">
-
-            <div class="col-3 m-1" style="border: solid black 0.1px;background-color:rgb(130, 254, 245)">
-                <h6>titre de l'article</h6>
-                <img src="~/img/visuel-non-disponible.jpg" style="width:100px;height:100px;" />
-                <p>Lenteurs ouverts confiture entonnoirs morves sous acteurs amour marais bleu</p>
-            </div>
-
-            <div class="col-3 m-1" style="border: solid black 0.1px;background-color: rgb(130, 254, 245)">
-                <h6>titre de l'article</h6>
-                <img src="~/img/visuel-non-disponible.jpg" style="width:100px;height:100px;" />
-                <p>Lenteurs ouverts confiture entonnoirs morves sous acteurs amour marais bleu</p>
-            </div>
-
-            <div class="col-3 m-1" style="border: solid black 0.1px;background-color: rgb(130, 254, 245)">
-                <h6>titre de l'article</h6>
-                <img src="~/img/visuel-non-disponible.jpg" style="width:100px;height:100px;" />
-                <p>Lenteurs ouverts confiture entonnoirs morves sous acteurs amour marais bleu</p>
-            </div>
+@foreach (var item in Model.Article_Eco.ToList().GetRange(0, 3))
+            {
+                <div class="col-3 m-1" style="border: solid black 0.1px;background-color: rgb(130, 254, 245)">
+                    <h6>@item.Title</h6>
+                    <img src="~/img/visuel-non-disponible.jpg" style="width:100px;height:100px;" />
+                    <p>@item.Text.Substring(0, 150)...</p>
+                </div>
+            }
         </div>
     </div>
 </div>
+
+<hr />
+
 
 <div class="economie">
     <h1>Economie</h1>
     <div class="container">
         <div class="row">
 
-            <div class="col-3 m-1" style="border: solid black 0.1px;background-color: rgb(254, 180, 176)">
-                <h6>titre de l'article</h6>
-                <img src="~/img/visuel-non-disponible.jpg" style="width:100px;height:100px;" />
-                <p>Lenteurs ouverts confiture entonnoirs morves sous acteurs amour marais bleu</p>
-            </div>
-
-            <div class="col-3 m-1" style="border: solid black 0.1px;background-color: rgb(254, 180, 176)">
-                <h6>titre de l'article</h6>
-                <img src="~/img/visuel-non-disponible.jpg" style="width:100px;height:100px;" />
-                <p>Lenteurs ouverts confiture entonnoirs morves sous acteurs amour marais bleu</p>
-            </div>
-
-            <div class="col-3 m-1" style="border: solid black 0.1px;background-color:rgb(254, 180, 176)">
-                <h6>titre de l'article</h6>
-                <img src="~/img/visuel-non-disponible.jpg" style="width:100px;height:100px;" />
-                <p>Lenteurs ouverts confiture entonnoirs morves sous acteurs amour marais bleu</p>
-            </div>
+            @foreach (var item in Model.Article_Eco.ToList().GetRange(0, 3))
+            {
+                <div class="col-3 m-1" style="border: solid black 0.1px;background-color: rgb(254, 180, 176)">
+                    <h6>@item.Title</h6>
+                    <img src="~/img/visuel-non-disponible.jpg" style="width:100px;height:100px;" />
+                    <p>@item.Text.Substring(0, 150)...</p>
+                </div>
+            }
         </div>
     </div>
 </div>
+
+
+<hr />
+
 
 
 <div class="sport">
     <h1>Sport</h1>
     <div class="container">
         <div class="row">
-
-            <div class="col-3 m-1" style="border: solid black 0.1px;background-color: rgb(130, 254, 0)">
-                <h6>titre de l'article</h6>
-                <img src="~/img/visuel-non-disponible.jpg" style="width:100px;height:100px;" />
-                <p>Lenteurs ouverts confiture entonnoirs morves sous acteurs amour marais bleu</p>
-            </div>
-
-            <div class="col-3 m-1" style="border: solid black 0.1px;background-color: rgb(130, 254, 0)">
-                <h6>titre de l'article</h6>
-                <img src="~/img/visuel-non-disponible.jpg" style="width: 100px; height: 100px;" />
-                <p>Lenteurs ouverts confiture entonnoirs morves sous acteurs amour marais bleu</p>
-            </div>
-
-            <div class="col-3 m-1" style="border: solid black 0.1px;background-color:rgb(130, 254, 0)">
-                <h6>titre de l'article</h6>
-                <img src="~/img/visuel-non-disponible.jpg" style="width:100px;height:100px;" />
-                <p>Lenteurs ouverts confiture entonnoirs morves sous acteurs amour marais bleu</p>
-            </div>
+            @foreach (var item in Model.Article_Eco.ToList().GetRange(0, 3))
+            {
+                <div class="col-3 m-1" style="border: solid black 0.1px;background-color: rgb(130, 254, 0)">
+                    <h6>@item.Title</h6>
+                    <img src="~/img/visuel-non-disponible.jpg" style="width:100px;height:100px;" />
+                    <p>@item.Text.Substring(0, 150)...</p>
+                </div>
+            }
         </div>
     </div>
 </div>

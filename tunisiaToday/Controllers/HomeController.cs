@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using System.Collections.Generic;
 using System.Diagnostics;
 using tunisiaToday.DataAccess.Repository.IRepository;
 using tunisiaToday.Models;
+using tunisiaToday.Models.ViewModels;
 
 namespace tunisiaToday.Controllers
 {
@@ -20,8 +20,17 @@ namespace tunisiaToday.Controllers
 
         public IActionResult Index()
         {
-            IEnumerable<Category> Categories = _unitOfWork.Category.GetAll( );
-            return View(Categories);
+            HomeVM homeVm = new HomeVM()
+            {
+                Article_Eco = _unitOfWork.Article.GetAll(),
+                Article_Int = _unitOfWork.Article.GetAll(),
+                Article_Pol = _unitOfWork.Article.GetAll(),
+                Article_Sport = _unitOfWork.Article.GetAll(),
+                Categories = _unitOfWork.Category.GetAll()
+        };
+
+
+            return View(homeVm);
         }
 
         public IActionResult Privacy()

@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.Linq;
+using System.Threading.Tasks;
 using tunisiaToday.DataAccess.Data;
 using tunisiaToday.Models;
 
@@ -13,9 +12,14 @@ namespace tunisiaToday.Controllers
     public class ArticleController : Controller
     {
         private readonly ApplicationDbContext _context;
+        
+        /* Il faudra utiliser IUnitOfWork pour l'acces aux donnees, mais ca n'as pas marche avec await*/
+        //private readonly IUnitOfWork _unitOfWork;
 
-        public ArticleController(ApplicationDbContext context)
+        public ArticleController(ApplicationDbContext context
+            /*, IUnitOfWork unitOfWork*/)
         {
+           // _unitOfWork = unitOfWork;
             _context = context;
         }
 
@@ -59,9 +63,13 @@ namespace tunisiaToday.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Title,Text,CategoryId")] Article article)
         {
+            
+            
             if (ModelState.IsValid)
             {
+                article.DatePublication = DateTime.Now;
                 _context.Add(article);
+                //_unitOfWork.Article.Add(article);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
@@ -102,6 +110,7 @@ namespace tunisiaToday.Controllers
             {
                 try
                 {
+                    article.Maj = DateTime.Now;
                     _context.Update(article);
                     await _context.SaveChangesAsync();
                 }

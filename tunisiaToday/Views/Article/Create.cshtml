@@ -24,7 +24,14 @@
             </div>
             <div class="form-group">
                 <label asp-for="CategoryId" class="control-label"></label>
-                <select asp-for="CategoryId" class ="form-control" asp-items="ViewBag.CategoryId"></select>
+                <select asp-for="CategoryId" class="form-control" asp-items="ViewBag.CategoryId"></select>
+            </div>
+            <br />
+            <hr />
+            <div class="form-group">
+                <label asp-for="estUne" class="control-label"></label>
+                <input asp-for="estUne" class="form-control" />
+                <span asp-validation-for="estUne" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

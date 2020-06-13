@@ -1,6 +1,4 @@
-﻿@model IEnumerable<tunisiaToday.Models.Category>
-
-
+﻿
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,14 +25,18 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
-
-                        @foreach (var item in Model)
-                        {
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Category" asp-action="">@item.Name</a>
-                            </li>
-                        }
-
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="">International</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="">Politique</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="">Economie</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="">Sport</a>
+                        </li>
                     </ul>
                 </div>
             </div>
