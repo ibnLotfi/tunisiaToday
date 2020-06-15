@@ -11,24 +11,53 @@
     <h4>Article</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Title)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Title)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Text)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Text)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Category)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Category.Name)
-        </dd class>
+        </dd>
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DatePublication)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DatePublication)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Maj)
+        </dt>
+        <dd class="col-sm-10">
+
+            @if (DateTime.Compare(Model.Maj, new DateTime(0001, 01, 01, 0, 0, 0)) == 0)
+            {
+                <p></p>
+            }
+            else
+            {
+                @Model.Maj
+            }
+
+        </dd>
+        
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.estUne)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.estUne)
+        </dd>
     </dl>
     
     <form asp-action="Delete">

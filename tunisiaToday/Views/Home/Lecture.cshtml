@@ -1,0 +1,27 @@
+﻿
+
+@using System.Web;
+
+@{
+    ViewData["Title"] = "Lecture";
+ Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="col-2">
+
+    </div>
+
+    <div class="col-8">
+
+        @{ 
+            var text = HttpUtility.HtmlDecode(Model.Text);
+        }
+        @text
+    </div>
+
+    <div class="col-2">
+
+    </div>
+</div>
+

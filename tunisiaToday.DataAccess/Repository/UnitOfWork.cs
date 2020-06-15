@@ -24,7 +24,7 @@ namespace tunisiaToday.DataAccess.Repository
 
         public void Save()
         {
-            throw new System.NotImplementedException();
+            _db.SaveChanges();
         }
     }
 }

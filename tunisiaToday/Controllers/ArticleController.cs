@@ -61,7 +61,7 @@ namespace tunisiaToday.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title,Text,CategoryId")] Article article)
+        public async Task<IActionResult> Create([Bind("Id,Title,Text,CategoryId,estUne")] Article article)
         {
             
             
@@ -99,7 +99,7 @@ namespace tunisiaToday.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Text,CategoryId")] Article article)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,DatePublication,Maj,Title,Text,CategoryId,estUne")] Article article)
         {
             if (id != article.Id)
             {
@@ -160,6 +160,10 @@ namespace tunisiaToday.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
+
+
+
+
 
         private bool ArticleExists(int id)
         {

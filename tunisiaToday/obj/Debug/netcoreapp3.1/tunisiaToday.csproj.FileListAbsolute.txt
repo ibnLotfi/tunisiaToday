@@ -437,3 +437,4 @@ C:\Users\issam.benmabrouck\source\repos\tunisiaToday\tunisiaToday\obj\Debug\netc
 C:\Users\issam.benmabrouck\source\repos\tunisiaToday\tunisiaToday\obj\Debug\netcoreapp3.1\staticwebassets\tunisiaToday.StaticWebAssets.xml
 C:\Users\issam.benmabrouck\source\repos\tunisiaToday\tunisiaToday\obj\Debug\netcoreapp3.1\tunisiaToday.dll
 C:\Users\issam.benmabrouck\source\repos\tunisiaToday\tunisiaToday\obj\Debug\netcoreapp3.1\tunisiaToday.pdb
+C:\Users\issam.benmabrouck\source\repos\tunisiaToday\tunisiaToday\obj\Debug\netcoreapp3.1\Razor\Views\Home\Lecture.cshtml.g.cs

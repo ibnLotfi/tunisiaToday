@@ -1,5 +1,6 @@
 ﻿@model IEnumerable<tunisiaToday.Models.Article>
 
+
 @{
     ViewData["Title"] = "Index";
 }
@@ -21,27 +22,72 @@
             <th>
                 @Html.DisplayNameFor(model => model.Category)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DatePublication)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Maj)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.estUne)
+            </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+
+            @foreach (var item in Model)
+            {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Title)
             </td>
+
             <td>
-                @Html.DisplayFor(modelItem => item.Text)
+                @if (@item.Text.Length < 50)
+                {
+                    @item.Text
+                }
+                else
+                {
+                   <p>@item.Text.Substring(1, 70)... </p>
+                }
+
             </td>
+
             <td>
                 @Html.DisplayFor(modelItem => item.Category.Name)
             </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.DatePublication)
+            </td>
+            <td>
+                @if (DateTime.Compare(item.Maj, new DateTime(0001, 01, 01, 0, 0, 0)) == 0)
+                {
+                    <p></p>
+                }
+                else
+                {
+                    @item.Maj
+                }
+
+            </td>
+            <td>
+                @if (item.estUne == true)
+                {
+                    <p style="font-size:2em; color:red; background-color:yellow">X</p>
+                }
+            </td>
+
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
                 <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
             </td>
         </tr>
-}
+            }
+
+
     </tbody>
 </table>

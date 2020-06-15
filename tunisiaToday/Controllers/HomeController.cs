@@ -22,20 +22,26 @@ namespace tunisiaToday.Controllers
         {
             HomeVM homeVm = new HomeVM()
             {
-                Article_Eco = _unitOfWork.Article.GetAll(),
-                Article_Int = _unitOfWork.Article.GetAll(),
-                Article_Pol = _unitOfWork.Article.GetAll(),
-                Article_Sport = _unitOfWork.Article.GetAll(),
-                Categories = _unitOfWork.Category.GetAll()
+                Article_Eco = _unitOfWork.Article.GetWhereCategoryId(2),
+                Article_Int = _unitOfWork.Article.GetWhereCategoryId(1),
+                Article_Pol = _unitOfWork.Article.GetWhereCategoryId(3),
+                Article_Sport = _unitOfWork.Article.GetWhereCategoryId(4),
         };
 
 
             return View(homeVm);
         }
 
-        public IActionResult Privacy()
+        public IActionResult Lecture(Article article)
         {
-            return View();
+
+            int id = article.Id;
+
+            Article objFromDb = _unitOfWork.Article.Get(id);
+
+            string content = objFromDb.Text;
+
+            return View(content);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
