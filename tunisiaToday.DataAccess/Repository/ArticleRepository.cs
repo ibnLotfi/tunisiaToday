@@ -17,7 +17,7 @@ namespace tunisiaToday.DataAccess.Repository
 
         public IEnumerable<Article> GetWhereCategoryId(int id)
         {
-            IEnumerable<Article> listFromDb = _db.Articles.Where(b => b.CategoryId == id);
+            IEnumerable<Article> listFromDb = _db.Articles.Where(b => b.CategoryId == id).OrderByDescending(b => b.DatePublication);
             return listFromDb;
         }
 

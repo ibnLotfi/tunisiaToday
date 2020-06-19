@@ -1,5 +1,7 @@
 ﻿@model tunisiaToday.Models.ViewModels.HomeVM
 
+@using Microsoft.AspNetCore.Html;
+
 @{
     ViewData["Title"] = "Home Page";
 }
@@ -31,29 +33,19 @@
     <h1>Internationnal</h1>
     <div class="container">
         <div class="row">
-            @if (Model.Article_Int.ToList().Count >= 3)
+            @if (Model.Article_Int.ToList().Count > 0)
             {
-                @foreach (var item in Model.Article_Int.ToList().GetRange(0, 3))
+                @foreach (var item in Model.Article_Int)
                 {
-            <div class="col-3 m-1" style="border: solid black 0.01px;">
-                <a style="color:black" asp-controller="Article" asp-action="Lecture" asp-route-id="@item.Id"><h6>@item.Title</h6></a>
-                <a style="color:black" asp-controller="Article" asp-action="Lecture" asp-route-id="@item.Id"><h6>@item.Title</h6></a>
-                <img src="@item.ImageUrl" style="width:192px;height:132px;" />
-                <a style="color:black" asp-controller="Article" asp-action="Lecture" asp-route-id="@item.Id">@item.Previsualisation</a>
-            </div>
+                    <div class="col-3 m-1" style="border: solid black 0.01px;">
+                        <a style="color:black" asp-controller="Article" asp-action="Lecture" asp-route-id="@item.Id"><h6>@item.Title</h6></a>
+                        <img src="@item.ImageUrl" style="width:192px;height:132px;" />
+                        
+                        <a style="color:black" asp-controller="Article" asp-action="Lecture" asp-route-id="@item.Id">@(new HtmlString(item.Previsualisation))</a>
+                    </div>
                 }
             }
-            else
-            {
-                @foreach (var item in Model.Article_Int.ToList())
-                {
-        <div class="col-3 m-1" style="border: solid black 0.01px;">
-            <a asp-controller="Article" asp-action="Lecture" asp-route-id="@item.Id"><h6>@item.Title</h6></a>
-            <img src="@item.ImageUrl" style="width:192px;height:132px;" />
-            <a style="color:black" asp-controller="Article" asp-action="Lecture" asp-route-id="@item.Id">@item.Previsualisation</a>
-        </div>
-                }
-            }
+
         </div>
     </div>
 </div>
@@ -64,35 +56,17 @@
     <h1>Politique</h1>
     <div class="container">
         <div class="row">
-
-
-
-
-
-            @if (Model.Article_Pol.ToList().Count >= 3)
+            @if (Model.Article_Pol.ToList().Count > 0)
             {
-                @foreach (var item in Model.Article_Pol.ToList().GetRange(0, 3))
+                @foreach (var item in Model.Article_Pol)
                 {
-            <div class="col-3 m-1" style="border: solid black 0.01px;">
-                <a style="color:black" asp-controller="Article" asp-action="Lecture" asp-route-id="@item.Id"><h6>@item.Title</h6></a>
-                <img src="@item.ImageUrl" style="width:192px;height:132px;" />
-                <a style="color:black" asp-controller="Article" asp-action="Lecture" asp-route-id="@item.Id">@item.Previsualisation</a>
-            </div>
+                    <div class="col-3 m-1" style="border: solid black 0.01px;">
+                        <a style="color:black" asp-controller="Article" asp-action="Lecture" asp-route-id="@item.Id"><h6>@item.Title</h6></a>
+                        <img src="@item.ImageUrl" style="width:192px;height:132px;" />
+                        <a style="color:black" asp-controller="Article" asp-action="Lecture" asp-route-id="@item.Id">@(new HtmlString(item.Previsualisation))</a>
+                    </div>
                 }
             }
-            else
-            {
-                @foreach (var item in Model.Article_Pol.ToList())
-                {
-        <div class="col-3 m-1" style="border: solid black 0.01px;">
-            <a style="color:black" asp-controller="Article" asp-action="Lecture" asp-route-id="@item.Id"><h6>@item.Title</h6></a>
-            <img src="@item.ImageUrl" style="width:192px;height:132px;" />
-            <a style="color:black" asp-controller="Article" asp-action="Lecture" asp-route-id="@item.Id">@item.Previsualisation</a>
-        </div>
-                }
-            }
-
-
         </div>
     </div>
 </div>
@@ -105,27 +79,16 @@
     <div class="container">
         <div class="row">
 
-            @if (Model.Article_Eco.ToList().Count >= 3)
+            @if (Model.Article_Eco.ToList().Count > 0)
             {
-                @foreach (var item in Model.Article_Eco.ToList().GetRange(0, 3))
+                @foreach (var item in Model.Article_Eco)
                 {
-            <div class="col-3 m-1" style="border: solid black 0.01px;">
-                <a style="color:black" asp-controller="Article" asp-action="Lecture" asp-route-id="@item.Id"><h6>@item.Title</h6></a>
-                <img src="@item.ImageUrl" style="width:192px;height:132px;" />
-                <a style="color:black" asp-controller="Article" asp-action="Details" asp-route-id="@item.Id">@item.Previsualisation</a>
+                    <div class="col-3 m-1" style="border: solid black 0.01px;">
+                        <a style="color:black" asp-controller="Article" asp-action="Lecture" asp-route-id="@item.Id"><h6>@item.Title</h6></a>
+                        <img src="@item.ImageUrl" style="width:192px;height:132px;" />
+                        <a style="color:black" asp-controller="Article" asp-action="Lecture" asp-route-id="@item.Id">@(new HtmlString(item.Previsualisation))</a>
 
-            </div>
-                }
-            }
-            else
-            {
-                @foreach (var item in Model.Article_Eco.ToList())
-                {
-        <div class="col-3 m-1" style="border: solid black 0.01px;">
-            <a style="color:black" asp-controller="Article" asp-action="Lecture" asp-route-id="@item.Id"><h6>@item.Title</h6></a>
-            <img src="@item.ImageUrl" style="width:192px;height:132px;" />
-            <a style="color:black" asp-controller="Article" asp-action="Details" asp-route-id="@item.Id">@item.Previsualisation</a>
-        </div>
+                    </div>
                 }
             }
         </div>
@@ -139,26 +102,15 @@
     <h1>Sport</h1>
     <div class="container">
         <div class="row">
-            @if (Model.Article_Sport.ToList().Count >= 3)
+            @if (Model.Article_Sport.ToList().Count > 0)
             {
-                @foreach (var item in Model.Article_Sport.ToList().GetRange(0, 3))
+                @foreach (var item in Model.Article_Sport)
                 {
-            <div class="col-3 m-1" style="border: solid black 0.01px;">
-                <a style="color:black" asp-controller="Article" asp-action="Lecture" asp-route-id="@item.Id"><h6>@item.Title</h6></a>
-                <img src="@item.ImageUrl" style="width:192px;height:132px;" />
-                <a style="color:black" asp-controller="Article" asp-action="Details" asp-route-id="@item.Id">@item.Previsualisation</a>
-            </div>
-                }
-            }
-            else
-            {
-                @foreach (var item in Model.Article_Sport.ToList())
-                {
-        <div class="col-3 m-1" style="border: solid black 0.01px;">
-            <a style="color:black" asp-controller="Article" asp-action="Lecture" asp-route-id="@item.Id"><h6>@item.Title</h6></a>
-            <img src="@item.ImageUrl" style="width:192px;height:132px;" />
-            <a style="color:black" asp-controller="Article" asp-action="Details" asp-route-id="@item.Id">@item.Previsualisation</a>
-        </div>
+                    <div class="col-3 m-1" style="border: solid black 0.01px;">
+                        <a style="color:black" asp-controller="Article" asp-action="Lecture" asp-route-id="@item.Id"><h6>@item.Title</h6></a>
+                        <img src="@item.ImageUrl" style="width:192px;height:132px;" />
+                        <a style="color:black" asp-controller="Article" asp-action="Lecture" asp-route-id="@item.Id">@(new HtmlString(item.Previsualisation))</a>
+                    </div>
                 }
             }
         </div>
