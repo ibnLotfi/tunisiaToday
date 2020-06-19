@@ -1,0 +1,8 @@
+C:\Users\issam.benmabrouck\source\repos\tunisiaToday\tunisiaToday.Models\bin\Release\netcoreapp3.1\tunisiaToday.Models.deps.json
+C:\Users\issam.benmabrouck\source\repos\tunisiaToday\tunisiaToday.Models\bin\Release\netcoreapp3.1\tunisiaToday.Models.dll
+C:\Users\issam.benmabrouck\source\repos\tunisiaToday\tunisiaToday.Models\bin\Release\netcoreapp3.1\tunisiaToday.Models.pdb
+C:\Users\issam.benmabrouck\source\repos\tunisiaToday\tunisiaToday.Models\obj\Release\netcoreapp3.1\tunisiaToday.Models.csprojAssemblyReference.cache
+C:\Users\issam.benmabrouck\source\repos\tunisiaToday\tunisiaToday.Models\obj\Release\netcoreapp3.1\tunisiaToday.Models.AssemblyInfoInputs.cache
+C:\Users\issam.benmabrouck\source\repos\tunisiaToday\tunisiaToday.Models\obj\Release\netcoreapp3.1\tunisiaToday.Models.AssemblyInfo.cs
+C:\Users\issam.benmabrouck\source\repos\tunisiaToday\tunisiaToday.Models\obj\Release\netcoreapp3.1\tunisiaToday.Models.dll
+C:\Users\issam.benmabrouck\source\repos\tunisiaToday\tunisiaToday.Models\obj\Release\netcoreapp3.1\tunisiaToday.Models.pdb

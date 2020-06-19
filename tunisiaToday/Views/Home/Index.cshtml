@@ -35,18 +35,11 @@
             {
                 @foreach (var item in Model.Article_Int.ToList().GetRange(0, 3))
                 {
-            <div class="col-3 m-1" style="border: solid black 0.1px;background-color:rgb(128, 128, 128)">
-                <h6>@item.Title</h6>
-                <img src="~/img/visuel-non-disponible.jpg" style="width:100px;height:100px;" />
-                @if (@item.Text.Length >= 150)
-                {
-                    <p>@item.Text.Substring(0, 150)...</p>
-                }
-                else
-                {
-                    @item.Text
-                }
-            <a class="btn btn-primary text-white" asp-controller="Article" asp-action="Details" asp-route-id="@item.Id">Lire</a>
+            <div class="col-3 m-1" style="border: solid black 0.01px;">
+                <a style="color:black" asp-controller="Article" asp-action="Lecture" asp-route-id="@item.Id"><h6>@item.Title</h6></a>
+                <a style="color:black" asp-controller="Article" asp-action="Lecture" asp-route-id="@item.Id"><h6>@item.Title</h6></a>
+                <img src="@item.ImageUrl" style="width:192px;height:132px;" />
+                <a style="color:black" asp-controller="Article" asp-action="Lecture" asp-route-id="@item.Id">@item.Previsualisation</a>
             </div>
                 }
             }
@@ -54,18 +47,10 @@
             {
                 @foreach (var item in Model.Article_Int.ToList())
                 {
-        <div class="col-3 m-1" style="border: solid black 0.1px;background-color: rgb(128, 128, 128)">
-            <h6>@item.Title</h6>
-            <img src="~/img/visuel-non-disponible.jpg" style="width:100px;height:100px;" />
-            @if (@item.Text.Length >= 150)
-            {
-                <p>@item.Text.Substring(0, 150)...</p>
-            }
-            else
-            {
-                @item.Text
-            }
-            <a class="btn btn-primary text-white" asp-controller="Article" asp-action="Details" asp-route-id="@item.Id">Lire</a>
+        <div class="col-3 m-1" style="border: solid black 0.01px;">
+            <a asp-controller="Article" asp-action="Lecture" asp-route-id="@item.Id"><h6>@item.Title</h6></a>
+            <img src="@item.ImageUrl" style="width:192px;height:132px;" />
+            <a style="color:black" asp-controller="Article" asp-action="Lecture" asp-route-id="@item.Id">@item.Previsualisation</a>
         </div>
                 }
             }
@@ -88,18 +73,10 @@
             {
                 @foreach (var item in Model.Article_Pol.ToList().GetRange(0, 3))
                 {
-            <div class="col-3 m-1" style="border: solid black 0.1px;background-color: rgb(255, 205, 0)">
-                <h6>@item.Title</h6>
-                <img src="~/img/visuel-non-disponible.jpg" style="width:100px;height:100px;" />
-                @if (@item.Text.Length >= 150)
-                {
-                    <p>@item.Text.Substring(0, 150)...</p>
-                }
-                else
-                {
-                    @item.Text
-                }
-                <a class="btn btn-primary text-white" asp-controller="Article" asp-action="Details" asp-route-id="@item.Id">Lire</a>
+            <div class="col-3 m-1" style="border: solid black 0.01px;">
+                <a style="color:black" asp-controller="Article" asp-action="Lecture" asp-route-id="@item.Id"><h6>@item.Title</h6></a>
+                <img src="@item.ImageUrl" style="width:192px;height:132px;" />
+                <a style="color:black" asp-controller="Article" asp-action="Lecture" asp-route-id="@item.Id">@item.Previsualisation</a>
             </div>
                 }
             }
@@ -107,18 +84,10 @@
             {
                 @foreach (var item in Model.Article_Pol.ToList())
                 {
-        <div class="col-3 m-1" style="border: solid black 0.1px;background-color: rgb(255, 205, 0)">
-            <h6>@item.Title</h6>
-            <img src="~/img/visuel-non-disponible.jpg" style="width:100px;height:100px;" />
-            @if (@item.Text.Length >= 150)
-            {
-                <p>@item.Text.Substring(0, 150)...</p>
-            }
-            else
-            {
-                @item.Text
-            }
-            <a class="btn btn-primary text-white" asp-controller="Article" asp-action="Details" asp-route-id="@item.Id">Lire</a>
+        <div class="col-3 m-1" style="border: solid black 0.01px;">
+            <a style="color:black" asp-controller="Article" asp-action="Lecture" asp-route-id="@item.Id"><h6>@item.Title</h6></a>
+            <img src="@item.ImageUrl" style="width:192px;height:132px;" />
+            <a style="color:black" asp-controller="Article" asp-action="Lecture" asp-route-id="@item.Id">@item.Previsualisation</a>
         </div>
                 }
             }
@@ -140,18 +109,11 @@
             {
                 @foreach (var item in Model.Article_Eco.ToList().GetRange(0, 3))
                 {
-            <div class="col-3 m-1" style="border: solid black 0.1px;background-color:rgb(255, 0, 0)">
-                <h6>@item.Title</h6>
-                <img src="~/img/visuel-non-disponible.jpg" style="width:100px;height:100px;" />
-                @if (@item.Text.Length >= 150)
-                {
-                    <p>@item.Text.Substring(0, 150)...</p>
-                }
-                else
-                {
-                    @item.Text
-                }
-                <a class="btn btn-primary text-white" asp-controller="Article" asp-action="Details" asp-route-id="@item.Id">Lire</a>
+            <div class="col-3 m-1" style="border: solid black 0.01px;">
+                <a style="color:black" asp-controller="Article" asp-action="Lecture" asp-route-id="@item.Id"><h6>@item.Title</h6></a>
+                <img src="@item.ImageUrl" style="width:192px;height:132px;" />
+                <a style="color:black" asp-controller="Article" asp-action="Details" asp-route-id="@item.Id">@item.Previsualisation</a>
+
             </div>
                 }
             }
@@ -159,18 +121,10 @@
             {
                 @foreach (var item in Model.Article_Eco.ToList())
                 {
-        <div class="col-3 m-1" style="border: solid black 0.1px;background-color: rgb(255, 0, 0)">
-            <h6>@item.Title</h6>
-            <img src="~/img/visuel-non-disponible.jpg" style="width:100px;height:100px;" />
-            @if (@item.Text.Length >= 150)
-            {
-                <p>@item.Text.Substring(0, 150)...</p>
-            }
-            else
-            {
-                @item.Text
-            }
-            <a class="btn btn-primary text-white" asp-controller="Article" asp-action="Details" asp-route-id="@item.Id">Lire</a>
+        <div class="col-3 m-1" style="border: solid black 0.01px;">
+            <a style="color:black" asp-controller="Article" asp-action="Lecture" asp-route-id="@item.Id"><h6>@item.Title</h6></a>
+            <img src="@item.ImageUrl" style="width:192px;height:132px;" />
+            <a style="color:black" asp-controller="Article" asp-action="Details" asp-route-id="@item.Id">@item.Previsualisation</a>
         </div>
                 }
             }
@@ -189,18 +143,10 @@
             {
                 @foreach (var item in Model.Article_Sport.ToList().GetRange(0, 3))
                 {
-            <div class="col-3 m-1" style="border: solid black 0.1px;background-color: rgb(0, 38, 255)">
-                <h6>@item.Title</h6>
-                <img src="~/img/visuel-non-disponible.jpg" style="width:100px;height:100px;" />
-                @if (@item.Text.Length >= 150)
-                {
-                    <p>@item.Text.Substring(0, 150)...</p>
-                }
-                else
-                {
-                    @item.Text
-                }
-                <a class="btn btn-primary text-white" asp-controller="Article" asp-action="Details" asp-route-id="@item.Id">Lire</a>
+            <div class="col-3 m-1" style="border: solid black 0.01px;">
+                <a style="color:black" asp-controller="Article" asp-action="Lecture" asp-route-id="@item.Id"><h6>@item.Title</h6></a>
+                <img src="@item.ImageUrl" style="width:192px;height:132px;" />
+                <a style="color:black" asp-controller="Article" asp-action="Details" asp-route-id="@item.Id">@item.Previsualisation</a>
             </div>
                 }
             }
@@ -208,18 +154,10 @@
             {
                 @foreach (var item in Model.Article_Sport.ToList())
                 {
-        <div class="col-3 m-1" style="border: solid black 0.1px;background-color:rgb(0, 38, 255)">
-            <h6>@item.Title</h6>
-            <img src="~/img/visuel-non-disponible.jpg" style="width:100px;height:100px;" />
-            @if (@item.Text.Length >= 150)
-            {
-                <p>@item.Text.Substring(0, 150)...</p>
-            }
-            else
-            {
-                @item.Text
-            }
-            <a class="btn btn-primary text-white" asp-controller="Article" asp-action="Details" asp-route-id="@item.Id">Lire</a>
+        <div class="col-3 m-1" style="border: solid black 0.01px;">
+            <a style="color:black" asp-controller="Article" asp-action="Lecture" asp-route-id="@item.Id"><h6>@item.Title</h6></a>
+            <img src="@item.ImageUrl" style="width:192px;height:132px;" />
+            <a style="color:black" asp-controller="Article" asp-action="Details" asp-route-id="@item.Id">@item.Previsualisation</a>
         </div>
                 }
             }

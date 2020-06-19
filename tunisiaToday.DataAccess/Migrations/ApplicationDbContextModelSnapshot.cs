@@ -32,8 +32,16 @@ namespace tunisiaToday.DataAccess.Migrations
                     b.Property<DateTime>("DatePublication")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("Maj")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("Previsualisation")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(300)")
+                        .HasMaxLength(300);
 
                     b.Property<string>("Text")
                         .IsRequired()

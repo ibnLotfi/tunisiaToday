@@ -21,6 +21,10 @@
     <ProjectReference Include="..\tunisiaToday.Models\tunisiaToday.Models.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\img\articles\" />
+  </ItemGroup>
+
 
 
 </Project>

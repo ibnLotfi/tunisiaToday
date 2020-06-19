@@ -32,17 +32,6 @@ namespace tunisiaToday.Controllers
             return View(homeVm);
         }
 
-        public IActionResult Lecture(Article article)
-        {
-
-            int id = article.Id;
-
-            Article objFromDb = _unitOfWork.Article.Get(id);
-
-            string content = objFromDb.Text;
-
-            return View(content);
-        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

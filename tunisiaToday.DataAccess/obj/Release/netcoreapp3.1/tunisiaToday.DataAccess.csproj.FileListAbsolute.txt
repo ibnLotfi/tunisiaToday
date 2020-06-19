@@ -1,0 +1,11 @@
+C:\Users\issam.benmabrouck\source\repos\tunisiaToday\tunisiaToday.DataAccess\bin\Release\netcoreapp3.1\tunisiaToday.DataAccess.deps.json
+C:\Users\issam.benmabrouck\source\repos\tunisiaToday\tunisiaToday.DataAccess\bin\Release\netcoreapp3.1\tunisiaToday.DataAccess.dll
+C:\Users\issam.benmabrouck\source\repos\tunisiaToday\tunisiaToday.DataAccess\bin\Release\netcoreapp3.1\tunisiaToday.DataAccess.pdb
+C:\Users\issam.benmabrouck\source\repos\tunisiaToday\tunisiaToday.DataAccess\bin\Release\netcoreapp3.1\tunisiaToday.Models.dll
+C:\Users\issam.benmabrouck\source\repos\tunisiaToday\tunisiaToday.DataAccess\bin\Release\netcoreapp3.1\tunisiaToday.Models.pdb
+C:\Users\issam.benmabrouck\source\repos\tunisiaToday\tunisiaToday.DataAccess\obj\Release\netcoreapp3.1\tunisiaToday.DataAccess.csprojAssemblyReference.cache
+C:\Users\issam.benmabrouck\source\repos\tunisiaToday\tunisiaToday.DataAccess\obj\Release\netcoreapp3.1\tunisiaToday.DataAccess.AssemblyInfoInputs.cache
+C:\Users\issam.benmabrouck\source\repos\tunisiaToday\tunisiaToday.DataAccess\obj\Release\netcoreapp3.1\tunisiaToday.DataAccess.AssemblyInfo.cs
+C:\Users\issam.benmabrouck\source\repos\tunisiaToday\tunisiaToday.DataAccess\obj\Release\netcoreapp3.1\tunisiaToday.DataAccess.csproj.CopyComplete
+C:\Users\issam.benmabrouck\source\repos\tunisiaToday\tunisiaToday.DataAccess\obj\Release\netcoreapp3.1\tunisiaToday.DataAccess.dll
+C:\Users\issam.benmabrouck\source\repos\tunisiaToday\tunisiaToday.DataAccess\obj\Release\netcoreapp3.1\tunisiaToday.DataAccess.pdb
