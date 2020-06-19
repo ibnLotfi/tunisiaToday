@@ -439,3 +439,4 @@ C:\Users\issam.benmabrouck\source\repos\tunisiaToday\tunisiaToday\obj\Debug\netc
 C:\Users\issam.benmabrouck\source\repos\tunisiaToday\tunisiaToday\obj\Debug\netcoreapp3.1\tunisiaToday.pdb
 C:\Users\issam.benmabrouck\source\repos\tunisiaToday\tunisiaToday\obj\Debug\netcoreapp3.1\Razor\Views\Home\Lecture.cshtml.g.cs
 C:\Users\issam.benmabrouck\source\repos\tunisiaToday\tunisiaToday\obj\Debug\netcoreapp3.1\Razor\Views\Article\Lecture.cshtml.g.cs
+C:\Users\issam.benmabrouck\source\repos\tunisiaToday\tunisiaToday\obj\Debug\netcoreapp3.1\Razor\Views\Article\ListeArticle.cshtml.g.cs

@@ -10,5 +10,7 @@ namespace tunisiaToday.DataAccess.Repository.IRepository
 
         IEnumerable<Article> GetWhereCategoryId(int id);
 
+        Article GetLastAlaUneArticle();
+
     }
 }

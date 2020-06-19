@@ -1,0 +1,28 @@
+﻿@model IEnumerable<tunisiaToday.Models.Article>
+@using Microsoft.AspNetCore.Html;
+
+@{
+    ViewData["Title"] = "ListeArticle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+    <div class="container" style="margin-top:60px;">
+        @foreach (var item in Model)
+        {
+            <div style="border:black solid 0.1px; margin-bottom:5px">
+                <div class="hautArticle">
+                    <h1>@item.Title</h1>
+                </div>
+                <div>
+                    <img src="@item.ImageUrl" style="width:400px;height:220px;" />
+                </div>
+                <div>
+                    <a style="        color: black
+" asp-controller="Article" asp-action="Lecture" asp-route-id="@item.Id">@(new HtmlString(item.Previsualisation))</a>
+                </div>
+            </div>
+        }
+
+    </div>
+
+
+

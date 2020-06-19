@@ -10,20 +10,26 @@
     <div><img src="~/img/5390015145514590975.gif" style="margin-top:60px" /></div>
 </div>
 
-<div class="newest">
-    <div class="container">
-        <div class="row">
-            <div class="col-12 text-center">
-                <h1>A la une</h1>
-                <div style="border: solid black 0.1px">
-                    <h3>Titre de l'article</h3>
-                    <img src="~/img/visuel-non-disponible.jpg" class="text-center" />
-                    <p class="text-center"> Puis crouler taches pas cotons par des taches nasses des des anglais de revé noyés vers trombes des ainsi les</p>
+@if (Model.Article != null)
+{
+
+    <div class="newest">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <div style="background-color:#EFEFEF">
+                        <h1>@Model.Article.Title</h1>
+                        <img src="@Model.Article.ImageUrl" style="width:930px;height:620px;" />
+                        <a style="color:black" asp-controller="Article" asp-action="Lecture" asp-route-id="@Model.Article.Id">@(new HtmlString(Model.Article.Previsualisation))</a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+
+
+}
+
 
 <hr />
 
@@ -40,7 +46,7 @@
                     <div class="col-3 m-1" style="border: solid black 0.01px;">
                         <a style="color:black" asp-controller="Article" asp-action="Lecture" asp-route-id="@item.Id"><h6>@item.Title</h6></a>
                         <img src="@item.ImageUrl" style="width:192px;height:132px;" />
-                        
+
                         <a style="color:black" asp-controller="Article" asp-action="Lecture" asp-route-id="@item.Id">@(new HtmlString(item.Previsualisation))</a>
                     </div>
                 }

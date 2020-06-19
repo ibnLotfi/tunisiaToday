@@ -15,6 +15,14 @@ namespace tunisiaToday.DataAccess.Repository
             _db = db;
         }
 
+        public Article GetLastAlaUneArticle()
+        {
+            IEnumerable<Article> listFromDb = _db.Articles.Where(b => b.estUne == true).OrderByDescending(b => b.DatePublication);
+            Article article = listFromDb.ToList().FirstOrDefault();
+
+            return article;
+        }
+
         public IEnumerable<Article> GetWhereCategoryId(int id)
         {
             IEnumerable<Article> listFromDb = _db.Articles.Where(b => b.CategoryId == id).OrderByDescending(b => b.DatePublication);

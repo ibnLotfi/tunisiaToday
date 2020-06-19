@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -216,6 +217,19 @@ namespace tunisiaToday.Controllers
             }
 
             return View(objFromDb);
+        }
+
+        public IActionResult ListeArticle(int id)
+        {
+
+            IEnumerable<Article> Articles = _unitOfWork.Article.GetWhereCategoryId(id);
+
+            if (Articles == null)
+            {
+                return NotFound();
+            }
+
+            return View(Articles);
         }
 
 

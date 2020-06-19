@@ -50,10 +50,10 @@ namespace tunisiaToday.Controllers
                 Article_Int = Article_Int,
                 Article_Pol = Article_Pol,
                 Article_Sport = Article_Sport,
+                Article = _unitOfWork.Article.GetLastAlaUneArticle()
             };
 
             
-
             return View(homeVm);
         }
 
