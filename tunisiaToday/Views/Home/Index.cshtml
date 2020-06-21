@@ -6,34 +6,33 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="pub-top-home text-center">
+@*<div class="pub-top-home text-center">
     <div><img src="~/img/5390015145514590975.gif" style="margin-top:60px" /></div>
-</div>
+</div>*@
+
+
+
+
 
 @if (Model.Article != null)
 {
 
-    <div class="newest">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 text-center">
-                    <div style="background-color:#EFEFEF">
-                        <h1>@Model.Article.Title</h1>
-                        <img src="@Model.Article.ImageUrl" style="width:930px;height:620px;" />
-                        <a style="color:black" asp-controller="Article" asp-action="Lecture" asp-route-id="@Model.Article.Id">@(new HtmlString(Model.Article.Previsualisation))</a>
-                    </div>
-                </div>
+
+<div class="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="@Model.Article.ImageUrl" alt="img-top-carousel">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>@Model.Article.Title</h5>
+                <a style="text-decoration:none; background-color:none;" asp-controller="Article" asp-action="Lecture" asp-route-id="@Model.Article.Id">@(new HtmlString(Model.Article.Previsualisation))</a>
             </div>
         </div>
     </div>
-
+</div>
 
 }
 
-
 <hr />
-
-
 
 <div class="internationnal">
     <h1>Internationnal</h1>
@@ -43,11 +42,14 @@
             {
                 @foreach (var item in Model.Article_Int)
                 {
-                    <div class="col-3 m-1" style="border: solid black 0.01px;">
-                        <a style="color:black" asp-controller="Article" asp-action="Lecture" asp-route-id="@item.Id"><h6>@item.Title</h6></a>
-                        <img src="@item.ImageUrl" style="width:192px;height:132px;" />
-
-                        <a style="color:black" asp-controller="Article" asp-action="Lecture" asp-route-id="@item.Id">@(new HtmlString(item.Previsualisation))</a>
+                    <div class="card m-2" style="width: 18rem;">
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <img class="card-img-top embed-responsive-item" src="@item.ImageUrl" alt="Card image cap">
+                        </div>
+                        <div class="card-body">
+                            <a style="color:black" asp-controller="Article" asp-action="Lecture" asp-route-id="@item.Id"><h6>@item.Title</h6></a>
+                            <a style="color:black" asp-controller="Article" asp-action="Lecture" asp-route-id="@item.Id">@(new HtmlString(item.Previsualisation))</a>
+                        </div>
                     </div>
                 }
             }
@@ -66,10 +68,14 @@
             {
                 @foreach (var item in Model.Article_Pol)
                 {
-                    <div class="col-3 m-1" style="border: solid black 0.01px;">
-                        <a style="color:black" asp-controller="Article" asp-action="Lecture" asp-route-id="@item.Id"><h6>@item.Title</h6></a>
-                        <img src="@item.ImageUrl" style="width:192px;height:132px;" />
-                        <a style="color:black" asp-controller="Article" asp-action="Lecture" asp-route-id="@item.Id">@(new HtmlString(item.Previsualisation))</a>
+                    <div class="card m-2" style="width: 18rem;">
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <img class="card-img-top embed-responsive-item" src="@item.ImageUrl" alt="Card image cap">
+                        </div>
+                        <div class="card-body">
+                            <a style="color:black" asp-controller="Article" asp-action="Lecture" asp-route-id="@item.Id"><h6>@item.Title</h6></a>
+                            <a style="color:black" asp-controller="Article" asp-action="Lecture" asp-route-id="@item.Id">@(new HtmlString(item.Previsualisation))</a>
+                        </div>
                     </div>
                 }
             }
@@ -78,7 +84,6 @@
 </div>
 
 <hr />
-
 
 <div class="economie">
     <h1>Economie</h1>
@@ -89,20 +94,22 @@
             {
                 @foreach (var item in Model.Article_Eco)
                 {
-                    <div class="col-3 m-1" style="border: solid black 0.01px;">
-                        <a style="color:black" asp-controller="Article" asp-action="Lecture" asp-route-id="@item.Id"><h6>@item.Title</h6></a>
-                        <img src="@item.ImageUrl" style="width:192px;height:132px;" />
-                        <a style="color:black" asp-controller="Article" asp-action="Lecture" asp-route-id="@item.Id">@(new HtmlString(item.Previsualisation))</a>
-
+                    <div class="card m-2" style="width: 18rem;">
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <img class="card-img-top embed-responsive-item" src="@item.ImageUrl" alt="Card image cap">
+                        </div>
+                        <div class="card-body">
+                            <a style="color:black" asp-controller="Article" asp-action="Lecture" asp-route-id="@item.Id"><h6>@item.Title</h6></a>
+                            <a style="color:black" asp-controller="Article" asp-action="Lecture" asp-route-id="@item.Id">@(new HtmlString(item.Previsualisation))</a>
+                        </div>
                     </div>
                 }
             }
         </div>
     </div>
 </div>
+
 <hr />
-
-
 
 <div class="sport">
     <h1>Sport</h1>
@@ -112,13 +119,18 @@
             {
                 @foreach (var item in Model.Article_Sport)
                 {
-                    <div class="col-3 m-1" style="border: solid black 0.01px;">
-                        <a style="color:black" asp-controller="Article" asp-action="Lecture" asp-route-id="@item.Id"><h6>@item.Title</h6></a>
-                        <img src="@item.ImageUrl" style="width:192px;height:132px;" />
-                        <a style="color:black" asp-controller="Article" asp-action="Lecture" asp-route-id="@item.Id">@(new HtmlString(item.Previsualisation))</a>
+                    <div class="card m-2" style="width: 18rem;">
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <img class="card-img-top embed-responsive-item" src="@item.ImageUrl" alt="Card image cap">
+                        </div>
+                        <div class="card-body">
+                            <a style="color:black" asp-controller="Article" asp-action="Lecture" asp-route-id="@item.Id"><h6>@item.Title</h6></a>
+                            <a style="color:black" asp-controller="Article" asp-action="Lecture" asp-route-id="@item.Id">@(new HtmlString(item.Previsualisation))</a>
+                        </div>
                     </div>
                 }
             }
         </div>
     </div>
 </div>
+
