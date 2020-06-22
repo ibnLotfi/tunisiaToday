@@ -37,16 +37,12 @@ namespace tunisiaToday.Controllers
         }
 
         // GET: Article/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public IActionResult Details(int id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
 
-            var article = await _context.Articles
-                .Include(a => a.Category)
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var article = _unitOfWork.Article.Get(id);
+
+
             if (article == null)
             {
                 return NotFound();
@@ -55,24 +51,12 @@ namespace tunisiaToday.Controllers
             return View(article);
         }
 
-        //public IActionResult Upsert(int? id)
-        //{
-        //    IEnumerable<Category> categories = _unitOfWork.Category.GetAll();
-            
-        //    if(id == null)
-        //    {
-        //        return View();
-        //    }
-
-
-        
-        //}
 
 
         // GET: Article/Create
         public IActionResult Create()
         {
-            ViewData["CategoryId"] = new SelectList(_context.Categories, "Id", "Name");
+            ViewData["CategoryId"] = new SelectList(_unitOfWork.Category.GetAll(), "Id", "Name");
             return View();
         }
 
@@ -81,7 +65,7 @@ namespace tunisiaToday.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title,ImageUrl,Text,Previsualisation,CategoryId,estUne")] Article article)
+        public IActionResult Create([Bind("Id,Title,ImageUrl,Text,Previsualisation,CategoryId,estUne")] Article article)
         {
             
             
@@ -113,9 +97,10 @@ namespace tunisiaToday.Controllers
 
                 }
                     article.DatePublication = DateTime.Now;
-                _context.Add(article);
-                //_unitOfWork.Article.Add(article);
-                await _context.SaveChangesAsync();
+
+                _unitOfWork.Article.Add(article);
+                _unitOfWork.Save();   
+
                 return RedirectToAction(nameof(Index));
             }
             ViewData["CategoryId"] = new SelectList(_context.Categories, "Id", "Name", article.CategoryId);
@@ -123,19 +108,16 @@ namespace tunisiaToday.Controllers
         }
 
         // GET: Article/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public IActionResult Edit(int id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
 
-            var article = await _context.Articles.FindAsync(id);
+
+            var article = _unitOfWork.Article.Get(id);
             if (article == null)
             {
                 return NotFound();
             }
-            ViewData["CategoryId"] = new SelectList(_context.Categories, "Id", "Name", article.CategoryId);
+            ViewData["CategoryId"] = new SelectList(_unitOfWork.Category.GetAll(), "Id", "Name", article.CategoryId);
             return View(article);
         }
 
@@ -144,7 +126,7 @@ namespace tunisiaToday.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,DatePublication,Maj,Title,Text,CategoryId,estUne")] Article article)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,DatePublication,Maj,Title,ImageUrl,Text,CategoryId,estUne")] Article article)
         {
             if (id != article.Id)
             {

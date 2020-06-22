@@ -9,14 +9,14 @@
 <h4>Article</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
+    <div class="col-md-8">
+        <form asp-action="Edit" method="post" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
 
-            <input asp-for="DatePublication" type="hidden"/>
+            <input asp-for="DatePublication" type="hidden" />
 
-            <input asp-for="Maj" type="hidden"/>
+            <input asp-for="Maj" type="hidden" />
 
 
 
@@ -25,11 +25,24 @@
                 <input asp-for="Title" class="form-control" />
                 <span asp-validation-for="Title" class="text-danger"></span>
             </div>
+
+            <div class="form-group">
+                <label id="uploadBox" class="control-label">Image</label>
+                <input type="file" asp-for="ImageUrl" id="uploadBox" class="form-control" />
+            </div>
+
             <div class="form-group">
                 <label asp-for="Text" class="control-label"></label>
                 <textarea asp-for="Text" class="form-control"></textarea>
                 <span asp-validation-for="Text" class="text-danger"></span>
             </div>
+
+            <div class="form-group">
+                <label asp-for="Previsualisation" class="control-label"></label>
+                <textarea asp-for="Previsualisation" class="form-control"></textarea>
+                <span asp-validation-for="Previsualisation" class="text-danger"></span>
+            </div>
+
             <div class="form-group">
                 <label asp-for="CategoryId" class="control-label"></label>
                 <select asp-for="CategoryId" class="form-control" asp-items="ViewBag.CategoryId"></select>
@@ -46,6 +59,14 @@
             </div>
         </form>
     </div>
+
+    <div class="col-md-4">
+        @if (@Model.ImageUrl != null)
+        {
+            <img src="@Model.ImageUrl" style="max-height:300px; width:100%"/>
+        }
+    </div>
+
 </div>
 
 <div>
