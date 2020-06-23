@@ -16,16 +16,16 @@
 
             </div>
 
-            <div class="col-8">
+            <div class="col-md-8 m-xl-auto">
 
-                <h3>@Model.Title</h3>
+                <h1 class="text-center">@Model.Title</h1>
                 @if (!(DateTime.Compare(Model.Maj, new DateTime(0001, 01, 01, 0, 0, 0)) == 0))
                 {
-                    <p style="font-size:0.7em;color:grey">Publié le @Model.DatePublication, mis à jour le @Model.Maj</p>
+                    <p style="font-size:0.7em;color:grey">Publié le @Model.DatePublication.ToString("dd/MM/yyyy HH:mm"), mis à jour le @Model.Maj.ToString("dd/MM/yyyy HH:mm")</p>
                 }
                 else
                 {
-                    <p style="font-size:0.7em;color:grey">Publié le @Model.DatePublication</p>
+                    <p style="font-size:0.7em;color:grey">Publié le @Model.DatePublication.ToString("dd/MM/yyyy HH:mm")</p>
                 }
             </div>
 
@@ -34,22 +34,16 @@
 
             </div>
         </div>
-
 
         <div class="row">
             <div class="col-2">
 
             </div>
-
-            <div class="col-8">
+            <div class="col-md-8 m-xl-auto">
 
                 @(new HtmlString(@Model.Text))
             </div>
-
-
             <div class="col-2">
-
             </div>
         </div>
-
     </div>

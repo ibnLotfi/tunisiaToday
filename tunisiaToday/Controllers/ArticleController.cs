@@ -110,8 +110,6 @@ namespace tunisiaToday.Controllers
         // GET: Article/Edit/5
         public IActionResult Edit(int id)
         {
-
-
             var article = _unitOfWork.Article.Get(id);
             if (article == null)
             {
@@ -126,7 +124,7 @@ namespace tunisiaToday.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,DatePublication,Maj,Title,ImageUrl,Text,CategoryId,estUne")] Article article)
+        public IActionResult Edit(int id, [Bind("Id,DatePublication,Maj,Title,ImageUrl,Text,Previsualisation,CategoryId,estUne")] Article article)
         {
             if (id != article.Id)
             {
@@ -137,9 +135,33 @@ namespace tunisiaToday.Controllers
             {
                 try
                 {
+                    string webRootPath = _hostEnvironment.WebRootPath;
+                    var files = HttpContext.Request.Form.Files;
+                    if (files.Count > 0)
+                    {
+                        string fileName = Guid.NewGuid().ToString();
+                        var uploads = Path.Combine(webRootPath, @"img\articles");
+                        var extenstion = Path.GetExtension(files[0].FileName);
+
+                        if (article.ImageUrl != null)
+                        {
+                            //this is an edit and we need to remove old image
+                            var imagePath = Path.Combine(webRootPath, article.ImageUrl.TrimStart('\\'));
+                            if (System.IO.File.Exists(imagePath))
+                            {
+                                System.IO.File.Delete(imagePath);
+                            }
+                        }
+                        using (var filesStreams = new FileStream(Path.Combine(uploads, fileName + extenstion), FileMode.Create))
+                        {
+                            files[0].CopyTo(filesStreams);
+                        }
+                        article.ImageUrl = @"\img\articles\" + fileName + extenstion;
+                    }
+
                     article.Maj = DateTime.Now;
-                    _context.Update(article);
-                    await _context.SaveChangesAsync();
+                    _unitOfWork.Article.Update(article);
+                    _unitOfWork.Save();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -154,39 +176,34 @@ namespace tunisiaToday.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CategoryId"] = new SelectList(_context.Categories, "Id", "Name", article.CategoryId);
+            ViewData["CategoryId"] = new SelectList(_unitOfWork.Category.GetAll(), "Id", "Name", article.CategoryId);
             return View(article);
         }
 
-        // GET: Article/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
+        //// GET: Article/Delete/5
+        //public IActionResult Delete(int id)
+        //{
 
-            var article = await _context.Articles
-                .Include(a => a.Category)
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (article == null)
-            {
-                return NotFound();
-            }
+        //    var article = _unitOfWork.Article.Get(id);
 
-            return View(article);
-        }
+        //    if (article == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-        // POST: Article/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            var article = await _context.Articles.FindAsync(id);
-            _context.Articles.Remove(article);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
+        //    return View(article);
+        //}
+
+        //// POST: Article/Delete/5
+        //[HttpPost, ActionName("Delete")]
+        //[ValidateAntiForgeryToken]
+        //public IActionResult DeleteConfirmed(int id)
+        //{
+        //    var article = _unitOfWork.Article.Get(id);
+        //    _unitOfWork.Article.Remove(article);
+        //    _unitOfWork.Save();
+        //    return RedirectToAction(nameof(Index));
+        //}
 
         public IActionResult Lecture(int id)
         {
@@ -212,6 +229,31 @@ namespace tunisiaToday.Controllers
             }
 
             return View(Articles);
+        }
+
+
+
+        [HttpDelete]
+        public IActionResult Delete(int id)
+        {
+            var objFromDb = _unitOfWork.Article.Get(id);
+            if (objFromDb == null)
+            {
+                return Json(new { success = false, message = "Error while deleting" });
+            }
+            if(objFromDb.ImageUrl != null)
+            {
+                string webRootPath = _hostEnvironment.WebRootPath;
+                var imagePath = Path.Combine(webRootPath, objFromDb.ImageUrl.TrimStart('\\'));
+                if (System.IO.File.Exists(imagePath))
+                {
+                    System.IO.File.Delete(imagePath);
+                }
+
+            }
+            _unitOfWork.Article.Remove(objFromDb);
+            _unitOfWork.Save();
+            return Json(new { success = true, message = "Delete Successful" });
         }
 
 

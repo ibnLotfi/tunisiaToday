@@ -7,7 +7,11 @@
     <title>@ViewData["Title"] - tunisiaToday</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script src="https://cdn.tiny.cloud/1/5cq3ycxtw1hky8z2mcx7i4ujoc21mnk75m6bfptgezrvxn27/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css" rel="stylesheet" />
+
 </head>
 <body>
     <header>
@@ -51,13 +55,21 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="sweetalert2.all.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
+    <script defer src="https://friconix.com/cdn/friconix.js"></script>
+
 
     <script>
         tinymce.init({
             selector: 'textarea',
             plugins: 'advlist autolink lists link image charmap print preview hr anchor pagebreak',
             toolbar_mode: 'floating',
-        });
+            height: "480",
+            toolbar: 'undo redo | fontsizeselect fontselect',
+            content_css: ['//fonts.google.com/specimen/Inria+Serif'],
+            font_formats: 'Arial Black=arial black,avant garde;Inria Serif =inria serif, cursive;Times New Roman=times new roman,times;'
+          });
     </script>
 
     @RenderSection("Scripts", required: false)

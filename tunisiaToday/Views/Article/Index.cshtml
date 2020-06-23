@@ -76,14 +76,18 @@
             <td>
                 @if (item.estUne == true)
                 {
-                    <p style="font-size:2em; color:red; background-color:yellow">X</p>
+                <i class="fi-stluxl-check"></i>
                 }
             </td>
 
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-secondary text-white " style="cursor:pointer; margin-bottom:2px">
+                    <i class="fi-swsuxl-pen"></i>
+                </a> 
+                @*<a asp-action="Details" asp-route-id="@item.Id">Details</a> |*@
+                <a onclick=Delete("/Article/Delete/@item.Id") class="btn btn-danger text-white" style="cursor:pointer">
+                    <i class="fi-xnsuxl-trash-bin"></i>
+                </a>
             </td>
         </tr>
             }
@@ -91,3 +95,32 @@
 
     </tbody>
 </table>
+
+
+<script>
+    function Delete(url) {
+        swal.fire({
+        title: "Are you sure you want to Delete?",
+        text: "You will not be able to restore the data!",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true
+    }).then((willDelete) => {
+        if (willDelete) {
+            $.ajax({
+                type: "DELETE",
+                url: url,
+                success: function (data) {
+                    if (data.success) {
+                        toastr.success(data.message);
+                        setTimeout(function(){ document.location.reload(true); }, 8000);
+                    }
+                    else {
+                        toastr.error(data.message);
+                    }
+                }
+            });
+        }
+    });
+}
+</script>

@@ -28,15 +28,15 @@ namespace tunisiaToday.Controllers
             {
                 Article_Int = _unitOfWork.Article.GetWhereCategoryId(1).ToList().GetRange(0, 6);
             }
-            IEnumerable<Article> Article_Eco = _unitOfWork.Article.GetWhereCategoryId(2);
+            IEnumerable<Article> Article_Eco = _unitOfWork.Article.GetWhereCategoryId(3);
             if (Article_Eco.Count() > 6)
             {
-                Article_Eco = _unitOfWork.Article.GetWhereCategoryId(2).ToList().GetRange(0, 6);
+                Article_Eco = _unitOfWork.Article.GetWhereCategoryId(3).ToList().GetRange(0, 6);
             }
-            IEnumerable<Article> Article_Pol = _unitOfWork.Article.GetWhereCategoryId(3);
+            IEnumerable<Article> Article_Pol = _unitOfWork.Article.GetWhereCategoryId(2);
             if (Article_Pol.Count() > 6)
             {
-                Article_Pol = _unitOfWork.Article.GetWhereCategoryId(3).ToList().GetRange(0, 6);
+                Article_Pol = _unitOfWork.Article.GetWhereCategoryId(2).ToList().GetRange(0, 6);
             }
             IEnumerable<Article> Article_Sport = _unitOfWork.Article.GetWhereCategoryId(4);
             if (Article_Sport.Count() > 6)

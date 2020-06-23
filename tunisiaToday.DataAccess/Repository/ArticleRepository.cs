@@ -32,8 +32,24 @@ namespace tunisiaToday.DataAccess.Repository
         public void Update(Article article)
         {
             var objFromDb = _db.Articles.FirstOrDefault(s => s.Id == article.Id);
-            objFromDb.Title = article.Title;
-            objFromDb.Text = article.Text;
+            if(objFromDb != null)
+            {
+
+                if(article.ImageUrl != null)
+                {
+                    objFromDb.ImageUrl = article.ImageUrl;
+                }
+
+                objFromDb.Title = article.Title;
+                objFromDb.Text = article.Text;
+                objFromDb.Previsualisation = article.Previsualisation;
+                objFromDb.DatePublication = article.DatePublication;
+                objFromDb.Maj = article.Maj;
+                objFromDb.CategoryId = article.CategoryId;
+                objFromDb.estUne = article.estUne;
+            }
+            
+            
         }
 
         

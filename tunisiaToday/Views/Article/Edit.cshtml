@@ -4,12 +4,19 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
 
-<h4>Article</h4>
+
+<h4 class="h-100" style="margin-top:70px">Modification article</h4>
 <hr />
+<div class="col-md-4 mx-auto">
+    @if (@Model.ImageUrl != null)
+    {
+        <img src="@Model.ImageUrl" style="max-height:300px; width:100%" />
+    }
+</div>
+
 <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-12">
         <form asp-action="Edit" method="post" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
@@ -63,7 +70,7 @@
     <div class="col-md-4">
         @if (@Model.ImageUrl != null)
         {
-            <img src="@Model.ImageUrl" style="max-height:300px; width:100%"/>
+            <img src="@Model.ImageUrl" style="max-height:300px; width:100%" />
         }
     </div>
 
