@@ -1,4 +1,6 @@
-﻿
+﻿@using tunisiaToday.Utility
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,20 +24,63 @@
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <ul class="navbar-nav flex-grow-1">
+
+
+
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-controller="Article" asp-action="ListeArticle" asp-route-id="1">International</a>
+                            <a class="nav-link active" asp-area="Journaliste" asp-controller="Article" asp-action="ListeArticle" asp-route-id="1">International</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-controller="Article" asp-action="ListeArticle" asp-route-id="2">Politique</a>
+                            <a class="nav-link active" asp-area="Journaliste" asp-controller="Article" asp-action="ListeArticle" asp-route-id="2">Politique</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-controller="Article" asp-action="ListeArticle" asp-route-id="3">Economie</a>
+                            <a class="nav-link active" asp-area="Journaliste" asp-controller="Article" asp-action="ListeArticle" asp-route-id="3">Economie</a>
+
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-controller="Article" asp-action="ListeArticle" asp-route-id="4">Sport</a>
+                            <a class="nav-link active" asp-area="Journaliste" asp-controller="Article" asp-action="ListeArticle" asp-route-id="4">Sport</a>
                         </li>
+
+
+
+
+
+                        @*@if (User.IsInRole(SD.Role_Admin))
+            {
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Espace Administration
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" asp-area="Admin" asp-controller="Category" asp-action="Index">Categories</a>
+                        <a class="dropdown-item" asp-area="Admin" asp-controller="CoverType" asp-action="Index">Cover Type</a>
+        <a class="dropdown-item" asp-area="Admin" asp-controller="Product" asp-action="Index">Product</a>
+                    </div>
+                </li>
+            }
+
+            @if (User.IsInRole(SD.Role_Journaliste) || User.IsInRole(SD.Role_Admin))
+            {
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Espace Articles
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" asp-area="Admin" asp-controller="Article" asp-action="Index">Articles</a>
+                        <a class="dropdown-item" asp-area="Admin" asp-controller="User" asp-action="Index">User</a>
+
+                    </div>
+                </li>
+            }*@
+
+
+
+                        @*<partial name="_LoginPartial" />*@
+                        <partial name="_LoginPartial" />
+
                     </ul>
                 </div>
             </div>
@@ -66,10 +111,14 @@
             plugins: 'advlist autolink lists link image charmap print preview hr anchor pagebreak',
             toolbar_mode: 'floating',
             height: "480",
+            image_dimensions: false,
+                image_class_list: [
+                {title: 'Responsive', value: 'img-fluid'}
+                ],
             toolbar: 'undo redo | fontsizeselect fontselect',
             content_css: ['//fonts.google.com/specimen/Inria+Serif'],
             font_formats: 'Arial Black=arial black,avant garde;Inria Serif =inria serif, cursive;Times New Roman=times new roman,times;'
-          });
+        });
     </script>
 
     @RenderSection("Scripts", required: false)

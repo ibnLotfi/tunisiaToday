@@ -6,6 +6,7 @@ namespace tunisiaToday.DataAccess.Repository.IRepository
     {
         ICategoryRepository Category { get; }
         IArticleRepository Article { get; }
+        IAppUsersRepository AppUsers { get; }
 
 
         void Save();

@@ -12,10 +12,13 @@ namespace tunisiaToday.DataAccess.Repository
             _db = db;
             Category = new CategoryRepository(_db);
             Article = new ArticleRepository(_db);
+            AppUsers = new AppUsersRepository(_db);
         }
 
         public ICategoryRepository Category { get; private set; }
         public IArticleRepository Article { get; private set; }
+
+        public IAppUsersRepository AppUsers { get; private set; }
 
         public void Dispose()
         {

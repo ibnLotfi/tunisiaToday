@@ -1,0 +1,7 @@
+C:\Users\issam.benmabrouck\source\repos\tunisiaToday\tunisiaToday.Utility\bin\Debug\netcoreapp3.1\tunisiaToday.Utility.deps.json
+C:\Users\issam.benmabrouck\source\repos\tunisiaToday\tunisiaToday.Utility\bin\Debug\netcoreapp3.1\tunisiaToday.Utility.dll
+C:\Users\issam.benmabrouck\source\repos\tunisiaToday\tunisiaToday.Utility\bin\Debug\netcoreapp3.1\tunisiaToday.Utility.pdb
+C:\Users\issam.benmabrouck\source\repos\tunisiaToday\tunisiaToday.Utility\obj\Debug\netcoreapp3.1\tunisiaToday.Utility.AssemblyInfoInputs.cache
+C:\Users\issam.benmabrouck\source\repos\tunisiaToday\tunisiaToday.Utility\obj\Debug\netcoreapp3.1\tunisiaToday.Utility.AssemblyInfo.cs
+C:\Users\issam.benmabrouck\source\repos\tunisiaToday\tunisiaToday.Utility\obj\Debug\netcoreapp3.1\tunisiaToday.Utility.dll
+C:\Users\issam.benmabrouck\source\repos\tunisiaToday\tunisiaToday.Utility\obj\Debug\netcoreapp3.1\tunisiaToday.Utility.pdb

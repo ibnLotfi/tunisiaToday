@@ -1,0 +1,138 @@
+﻿@model tunisiaToday.Models.ViewModels.HomeVM
+
+@using Microsoft.AspNetCore.Html;
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@*<div class="pub-top-home text-center">
+    <div><img src="~/img/5390015145514590975.gif" style="margin-top:60px" /></div>
+</div>*@
+
+
+
+
+
+@if (Model.Article != null)
+{
+
+    
+        <div class="carousel" style="margin-top:70px">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <a class="text-dark text-decoration-none text-center" asp-area="Journaliste"  asp-controller="Article" asp-action="Lecture" asp-route-id="@Model.Article.Id">
+                        <h3>@Model.Article.Title</h3>
+                    </a>
+                        <img src="@Model.Article.ImageUrl" alt="img-top-carousel" class="img-fluid" @*style="max-height:600px;width:100%"*@>
+                        <div>
+                            <a class="text-dark text-decoration-none" asp-area="Journaliste" asp-controller="Journaliste" asp-action="Lecture" asp-route-id="@Model.Article.Id">@(new HtmlString(Model.Article.Previsualisation))</a>
+                        </div>
+                </div>
+            </div>
+        </div>
+
+}
+
+<hr />
+
+<div class="internationnal">
+    <h1>Internationnal</h1>
+    <div class="container">
+        <div class="row">
+            @if (Model.Article_Int.ToList().Count > 0)
+            {
+                @foreach (var item in Model.Article_Int)
+                {
+                    <div class="card m-2" style="width: 18rem;margin:auto">
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <img class="card-img-top embed-responsive-item" src="@item.ImageUrl" alt="Card image cap">
+                        </div>
+                        <div class="card-body">
+                            <a class="text-decoration-none" style="color:black"  asp-area="Journaliste" asp-controller="Article" asp-action="Lecture" asp-route-id="@item.Id"><h6>@item.Title</h6></a>
+                            <a class="text-decoration-none" style="color:black" asp-area="Journaliste"  asp-controller="Article" asp-action="Lecture" asp-route-id="@item.Id">@(new HtmlString(item.Previsualisation))</a>
+                        </div>
+                    </div>
+                }
+            }
+
+        </div>
+    </div>
+</div>
+
+<hr />
+
+<div class="politique">
+    <h1>Politique</h1>
+    <div class="container">
+        <div class="row">
+            @if (Model.Article_Pol.ToList().Count > 0)
+            {
+                @foreach (var item in Model.Article_Pol)
+                {
+                    <div class="card m-2" style="width: 18rem;">
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <img class="card-img-top embed-responsive-item" src="@item.ImageUrl" alt="Card image cap">
+                        </div>
+                        <div class="card-body">
+                            <a class="text-decoration-none" style="color:black" asp-area="Journaliste" asp-controller="Article" asp-action="Lecture" asp-route-id="@item.Id"><h6>@item.Title</h6></a>
+                            <a class="text-decoration-none" style="color:black" asp-area="Journaliste" asp-controller="Article" asp-action="Lecture" asp-route-id="@item.Id">@(new HtmlString(item.Previsualisation))</a>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+</div>
+
+<hr />
+
+<div class="economie">
+    <h1>Economie</h1>
+    <div class="container">
+        <div class="row">
+
+            @if (Model.Article_Eco.ToList().Count > 0)
+            {
+                @foreach (var item in Model.Article_Eco)
+                {
+                    <div class="card m-2" style="width: 18rem;">
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <img class="card-img-top embed-responsive-item" src="@item.ImageUrl" alt="Card image cap">
+                        </div>
+                        <div class="card-body">
+                            <a class="text-decoration-none" style="color:black" asp-area="Journaliste" asp-controller="Article" asp-action="Lecture" asp-route-id="@item.Id"><h6>@item.Title</h6></a>
+                            <a class="text-decoration-none" style="color:black" asp-area="Journaliste" asp-controller="Article" asp-action="Lecture" asp-route-id="@item.Id">@(new HtmlString(item.Previsualisation))</a>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+</div>
+
+<hr />
+
+<div class="sport">
+    <h1>Sport</h1>
+    <div class="container">
+        <div class="row">
+            @if (Model.Article_Sport.ToList().Count > 0)
+            {
+                @foreach (var item in Model.Article_Sport)
+                {
+                    <div class="card m-2" style="width: 18rem;">
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <img class="card-img-top embed-responsive-item" src="@item.ImageUrl" alt="Card image cap">
+                        </div>
+                        <div class="card-body">
+                            <a class="text-decoration-none" style="color:black" asp-area="Journaliste" asp-controller="Article" asp-action="Lecture" asp-route-id="@item.Id"><h6>@item.Title</h6></a>
+                            <a class="text-decoration-none" style="color:black" asp-area="Journaliste" asp-controller="Article" asp-action="Lecture" asp-route-id="@item.Id">@(new HtmlString(item.Previsualisation))</a>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+</div>
+
